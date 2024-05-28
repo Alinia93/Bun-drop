@@ -12,7 +12,6 @@ import Registration from "./pages/Registration";
 function App() {
   return (
     <Router>
-      <div>//Syns på alla sidor</div>
       <MyNavBar />
       <Routes>
         <Route path="/" element={<Home />} />

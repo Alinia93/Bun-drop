@@ -1,0 +1,29 @@
+.logo {
+}
+
+.brand-container {
+  width: 25%;
+  height: auto;
+}
+
+.navbar-links {
+}
+
+.navbar-collapse-container {
+  border-top: 2px solid black;
+  margin-top: 70px;
+}
+
+.nav-links {
+  margin-right: 20px;
+  font-family: "Reddit Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav-absolute {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+}

@@ -3,21 +3,16 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../../images/logo.png";
-import Image from "react-bootstrap/Image";
+
 import "../../css/Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function MyNavBar() {
   return (
     <Navbar expand="lg">
-      <Container
-        fluid
-        className="border border-danger d-flex align-items-center position-relative"
-      >
-        <Navbar.Brand
-          className="border border-primary brand-container"
-          href="/"
-        >
+      <Container fluid className=" d-flex align-items-center position-relative">
+        <Navbar.Brand className=" brand-container" href="/">
           <img className="img-fluid logo" src={logo} alt="Bun drop logo" />
         </Navbar.Brand>
 
@@ -30,24 +25,25 @@ function MyNavBar() {
             <Nav.Link className=" nav-links" href="/menu">
               Menu
             </Nav.Link>
-            <Nav.Link className=" nav-links" href="/popular-burgers">
+            <Nav.Link className=" nav-links" href="#popular-burgers-title">
               Popular burgers
             </Nav.Link>
             <Nav.Link className="nav-links" href="/about-us">
               About us
             </Nav.Link>
+            <FontAwesomeIcon icon={faCartShopping} transform=" down-12" />
             <Nav.Link className="nav-links" href="/your-order">
               Your Order
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
 
-        <Nav className="border border-primary nav-absolute">
-          <FontAwesomeIcon icon="fa-regular fa-heart" />
+        <div className=" nav-links-2-container">
+          <FontAwesomeIcon icon={faHeart} transform=" down-5 left-6" />
 
-          <Nav.Link className="nav-links">Your favorites</Nav.Link>
-          <Nav.Link>Sign in</Nav.Link>
-        </Nav>
+          <Nav.Link className="nav-links-2">Your favorites</Nav.Link>
+          <Nav.Link className="nav-links-2">Sign in</Nav.Link>
+        </div>
       </Container>
     </Navbar>
   );

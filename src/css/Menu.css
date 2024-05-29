@@ -1,0 +1,30 @@
+.menu-burger-modal-img {
+  width: 100%;
+}
+
+.modal-burger-title {
+  font-family: "Reddit Mono monospace";
+  font-weight: 200;
+  font-style: normal;
+}
+
+.img-description-modal-container {
+  display: flex;
+  align-items: center;
+}
+
+.description-text {
+  font-family: "Reddit Mono monospace";
+  font-weight: 200;
+  font-style: normal;
+}
+
+.order-button {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 20%;
+}

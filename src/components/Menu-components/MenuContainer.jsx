@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Modal } from "react-bootstrap";
+
 import "../../css/Menu.css";
 import SearchBar from "./SearchBar";
+import MenuModal from "./MenuModal";
 
-function MenuContainer() {
+function MenuContainer(props) {
   const [menu, setMenu] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
+  const [filteredMenu, setFilteredMenu] = useState([]);
+
   useEffect(() => {
-    fetch("http://localhost:3000/menu")
+    fetch("http://localhost:3001/bunDropMenu")
       .then((response) => response.json())
-      .then((data) => setMenu(data));
+      .then((data) => {
+        setMenu(data);
+        setFilteredMenu(data);
+      });
   }, []);
 
   function handleClose() {
@@ -23,14 +29,33 @@ function MenuContainer() {
     setShowModal(true);
   }
 
-  const filterMenu = (category) => {
+  function filterMenu(category) {
     if (category === "all") {
       setFilteredMenu(menu);
     } else {
-      setFilteredMenu(menu.filter((item) => item.category === category));
+      setFilteredMenu(menu.filter((c) => c.category === category));
     }
-  };
+  }
 
+  function handleOrder() {
+    const postOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(selectedItem),
+    };
+    fetch("http://localhost:3001/tempCart", postOptions).then((res) => {
+      if (res.ok) {
+        {
+          props.setTempCartCount((count) => count + 1);
+          handleClose();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }
+      }
+    });
+  }
   return (
     <>
       <div className="container my-5 menu-container">
@@ -40,7 +65,7 @@ function MenuContainer() {
 
         <div className="menu-box bg-dark text-light p-4 rounded">
           <div className="row">
-            {menu.map((burger) => (
+            {filteredMenu.map((burger) => (
               <div key={burger.id} className=" col-6 col-md-6  col-lg-4 mb-4">
                 <div
                   className="burger-item text-center"
@@ -58,39 +83,14 @@ function MenuContainer() {
           </div>
         </div>
 
-        {selectedItem && (
-          <Modal show={showModal} onHide={handleClose} centered>
-            <Modal.Header closeButton>
-              <Modal.Title className="modal-burger-title">
-                {selectedItem.title}
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="m-0 p-0">
-              <div className=" img-description-modal-container">
-                <div className="row">
-                  <div className="col-6">
-                    <img
-                      src={selectedItem.image}
-                      alt={selectedItem.title}
-                      className="menu-burger-modal-img  "
-                    />
-                  </div>
-                  <div className="col-5">
-                    <p className="description-text">
-                      {selectedItem.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <p className="mt-3 fw-bold">Price: ${selectedItem.price}</p>
-            </Modal.Body>
-            <Modal.Footer>
-              <button className="order-button" onClick={handleClose}>
-                Order
-              </button>
-            </Modal.Footer>
-          </Modal>
-        )}
+        {selectedItem ? (
+          <MenuModal
+            showModal={showModal}
+            handleOrder={handleOrder}
+            handleClose={handleClose}
+            selectedItem={selectedItem}
+          />
+        ) : null}
       </div>
     </>
   );

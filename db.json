@@ -1,5 +1,5 @@
 {
-  "menu": [
+  "bunDropMenu": [
     {
       "id": 1,
       "title": "Flying Cheezy beef",
@@ -19,7 +19,7 @@
     {
       "id": 3,
       "title": "Flying fat Joe",
-      "price": 14.0,
+      "price": 14,
       "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
       "category": "burgers",
       "image": "/images/burger_3.png"
@@ -27,10 +27,108 @@
     {
       "id": 4,
       "title": "Flying crispy fries",
-      "price": 14.0,
+      "price": 14,
       "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
       "category": "sides",
       "image": "/images/fries_1.png"
+    }
+  ],
+  "tempCart": [
+    {
+      "id": "1",
+      "title": "Flying Cheezy beef",
+      "price": 12.5,
+      "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
+      "category": "burgers",
+      "image": "images/burger_2.png"
+    },
+    {
+      "id": "4",
+      "title": "Flying crispy fries",
+      "price": 14,
+      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+      "category": "sides",
+      "image": "/images/fries_1.png"
+    },
+    {
+      "id": "1",
+      "title": "Flying Cheezy beef",
+      "price": 12.5,
+      "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
+      "category": "burgers",
+      "image": "images/burger_2.png"
+    },
+    {
+      "id": 2,
+      "title": "Flying black bacon",
+      "price": 13.2,
+      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
+      "category": "burgers",
+      "image": "/images/burger_1.png"
+    },
+    {
+      "id": 2,
+      "title": "Flying black bacon",
+      "price": 13.2,
+      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
+      "category": "burgers",
+      "image": "/images/burger_1.png"
+    },
+    {
+      "id": 3,
+      "title": "Flying fat Joe",
+      "price": 14,
+      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+      "category": "burgers",
+      "image": "/images/burger_3.png"
+    },
+    {
+      "id": 2,
+      "title": "Flying black bacon",
+      "price": 13.2,
+      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
+      "category": "burgers",
+      "image": "/images/burger_1.png"
+    },
+    {
+      "id": 3,
+      "title": "Flying fat Joe",
+      "price": 14,
+      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+      "category": "burgers",
+      "image": "/images/burger_3.png"
+    },
+    {
+      "id": 2,
+      "title": "Flying black bacon",
+      "price": 13.2,
+      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
+      "category": "burgers",
+      "image": "/images/burger_1.png"
+    },
+    {
+      "id": 3,
+      "title": "Flying fat Joe",
+      "price": 14,
+      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+      "category": "burgers",
+      "image": "/images/burger_3.png"
+    },
+    {
+      "id": 4,
+      "title": "Flying crispy fries",
+      "price": 14,
+      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+      "category": "sides",
+      "image": "/images/fries_1.png"
+    },
+    {
+      "id": 3,
+      "title": "Flying fat Joe",
+      "price": 14,
+      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+      "category": "burgers",
+      "image": "/images/burger_3.png"
     }
   ]
 }

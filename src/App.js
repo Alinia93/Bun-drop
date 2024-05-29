@@ -12,7 +12,6 @@ import Registration from "./pages/Registration";
 function App() {
   return (
     <Router>
-      <MyNavBar />
       <Routes>
         <Route path="/" element={<Home />} />
 

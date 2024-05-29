@@ -1,14 +1,14 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
 import logo from "../../images/logo.png";
 
 import "../../css/Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-function MyNavBar() {
+function MyNavBar(props) {
   return (
     <Navbar expand="lg">
       <Container fluid className=" d-flex align-items-center position-relative">
@@ -25,16 +25,15 @@ function MyNavBar() {
             <Nav.Link className=" nav-links" href="/menu">
               Menu
             </Nav.Link>
-            <Nav.Link className=" nav-links" href="#popular-burgers-title">
-              Popular burgers
-            </Nav.Link>
+
             <Nav.Link className="nav-links" href="/about-us">
               About us
             </Nav.Link>
             <FontAwesomeIcon icon={faCartShopping} transform=" down-12" />
-            <Nav.Link className="nav-links" href="/your-order">
-              Your Order
+            <Nav.Link className="m-0 nav-links " href="/your-order">
+              Your Order:
             </Nav.Link>
+            <span className=" ml-0 mt-2">{props.tempCartCount}</span>
           </Nav>
         </Navbar.Collapse>
 

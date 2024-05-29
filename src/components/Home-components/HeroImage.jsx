@@ -3,6 +3,10 @@ import big_hamburger from "../../images/big_hamburger.webp";
 import "../../css/HeroImage.css";
 
 function HeroImage() {
+  function handlePopularBurgersClick() {
+    window.scrollTo(0, 1000);
+  }
+
   return (
     <div className="hero-image-container">
       <div className="row no-gutters align-items-center">
@@ -24,6 +28,13 @@ function HeroImage() {
       </div>
       <div className="hero-text-container">
         <p className="hero-text">Dropping burgers since 2021</p>
+      </div>
+
+      <div
+        onClick={handlePopularBurgersClick}
+        className="see-popular-burgers-container"
+      >
+        <p className="see-popular-burgers-text">See popular burgers</p>
       </div>
     </div>
   );

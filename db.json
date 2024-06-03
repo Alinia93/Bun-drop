@@ -129,6 +129,14 @@
       "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
       "category": "burgers",
       "image": "/images/burger_3.png"
+    },
+    {
+      "id": 4,
+      "title": "Flying crispy fries",
+      "price": 14,
+      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+      "category": "sides",
+      "image": "/images/fries_1.png"
     }
   ]
 }

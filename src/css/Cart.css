@@ -1,0 +1,27 @@
+.product-image {
+  width: 25%;
+}
+
+.your-order-container {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.sum-container {
+  margin: 0;
+  padding: 0;
+  text-align: start;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.col-4,
+.col-2 {
+  padding: 0;
+  margin: 0;
+}

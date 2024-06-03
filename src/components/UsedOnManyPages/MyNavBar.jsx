@@ -30,7 +30,7 @@ function MyNavBar(props) {
               About us
             </Nav.Link>
             <FontAwesomeIcon icon={faCartShopping} transform=" down-12" />
-            <Nav.Link className="m-0 nav-links " href="/your-order">
+            <Nav.Link className="m-0 nav-links " href="/cart">
               Your Order:
             </Nav.Link>
             <span className=" ml-0 mt-2">{props.tempCartCount}</span>

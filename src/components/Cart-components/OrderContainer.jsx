@@ -63,7 +63,7 @@ function OrderContainer() {
       <div className="container">
         <div className="header">
           <div className="row">
-            <div className="col-4">Products</div>
+            <div className="col-4"> Hej Products</div>
             <div className="col-2">Price</div>
             <div className="col-2">Quantity</div>
             <div className="col-2 border border-danger">Total</div>

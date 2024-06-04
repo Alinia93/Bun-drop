@@ -1,6 +1,9 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import React, { useState } from "react";
+
+import { useNavigate } from 'react-router-dom';
 
 import logo from "../../images/logo.png";
 
@@ -9,7 +12,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function MyNavBar(props) {
+
+  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  function linkToRegister(){
+navigate("/menu");
+handleCloseModal();
+  }
+
   return (
+    <>
     <Navbar expand="lg">
       <Container fluid className=" d-flex align-items-center position-relative">
         <Navbar.Brand className=" brand-container" href="/">
@@ -40,11 +61,12 @@ function MyNavBar(props) {
         <div className=" nav-links-2-container">
           <FontAwesomeIcon icon={faHeart} transform=" down-5 left-6" />
 
-          <Nav.Link className="nav-links-2">Your favorites</Nav.Link>
-          <Nav.Link className="nav-links-2">Sign in</Nav.Link>
+          <Nav.Link className="nav-links-2" href="/favorites">Your favorites</Nav.Link>
+          <Nav.Link href="/signIn">Sign in</Nav.Link>
         </div>
       </Container>
     </Navbar>
+      </>
   );
 }
 

@@ -1,7 +1,20 @@
 import React from "react";
+import RegisterContainer from "../components/SignIn-components/RegisterContainer";
+import "../css/Register.css"
 
 function Registration() {
-  return <></>;
+
+
+  return(
+    <div className="register-page-container border border-danger">
+  <RegisterContainer/>
+  
+  
+  
+</div>
+  );
+
+
 }
 
 export default Registration;

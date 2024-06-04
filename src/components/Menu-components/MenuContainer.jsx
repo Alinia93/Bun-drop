@@ -12,7 +12,7 @@ function MenuContainer(props) {
   const [filteredMenu, setFilteredMenu] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/bunDropMenu")
+    fetch("http://localhost:3000/bunDropMenu")
       .then((response) => response.json())
       .then((data) => {
         setMenu(data);
@@ -38,22 +38,15 @@ function MenuContainer(props) {
   }
 
   function handleOrder() {
-    const postOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(selectedItem),
-    };
-    fetch("http://localhost:3001/tempCart", postOptions).then((res) => {
-      if (res.ok) {
-        {
-          props.setTempCartCount((count) => count + 1);
-          handleClose();
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-          });
-        }
-      }
+    let cart = JSON.parse(localStorage.getItem('tempCart')) || [];
+    cart.push(selectedItem);
+    localStorage.setItem('tempCart', JSON.stringify(cart));
+    
+    props.setTempCartCount(cart.length);
+    handleClose();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
     });
   }
   return (

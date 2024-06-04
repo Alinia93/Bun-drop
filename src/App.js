@@ -8,6 +8,7 @@ import Favorites from "./pages/Favorites";
 import Menu from "./pages/Menu";
 import Payment from "./pages/Payment";
 import Registration from "./pages/Registration";
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
@@ -23,8 +24,13 @@ function App() {
 
         <Route path="/payment" element={<Payment />} />
 
-        <Route path="/registration" element={<Registration />} />
-      </Routes>
+        
+        <Route path="/signIn" element={<SignIn />} />
+
+
+        <Route path="/register" element={<Registration />} />
+        
+    </Routes>
     </Router>
   );
 }

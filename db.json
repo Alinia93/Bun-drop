@@ -33,110 +33,133 @@
       "image": "/images/fries_1.png"
     }
   ],
-  "tempCart": [
+  "users": [
+    {},
     {
-      "id": "1",
-      "title": "Flying Cheezy beef",
-      "price": 12.5,
-      "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
-      "category": "burgers",
-      "image": "images/burger_2.png"
+      "id": 1,
+      "firstName": "Alinia",
+      "lastName": "Bajs",
+      "address": "Hejhej",
+      "postalCode": "2222222",
+      "city": "Lund",
+      "email": "alinia93@gmail.com",
+      "password": "password",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": "4",
-      "title": "Flying crispy fries",
-      "price": 14,
-      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-      "category": "sides",
-      "image": "/images/fries_1.png"
+      "id": 1717502858352,
+      "firstName": "vvdc",
+      "lastName": "vcvc",
+      "address": "fdf",
+      "postalCode": "fdfd",
+      "city": "fdfd",
+      "email": "alinia93@gmail.com",
+      "password": "vcvcvc",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": "1",
-      "title": "Flying Cheezy beef",
-      "price": 12.5,
-      "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
-      "category": "burgers",
-      "image": "images/burger_2.png"
+      "id": 1717502860469,
+      "firstName": "vvdc",
+      "lastName": "vcvc",
+      "address": "fdf",
+      "postalCode": "fdfd",
+      "city": "fdfd",
+      "email": "alinia93@gmail.com",
+      "password": "vcvcvc",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": 2,
-      "title": "Flying black bacon",
-      "price": 13.2,
-      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
-      "category": "burgers",
-      "image": "/images/burger_1.png"
+      "id": 1717502862062,
+      "firstName": "vvdc",
+      "lastName": "vcvc",
+      "address": "fdf",
+      "postalCode": "fdfd",
+      "city": "fdfd",
+      "email": "alinia93@gmail.com",
+      "password": "vcvcvc",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": 2,
-      "title": "Flying black bacon",
-      "price": 13.2,
-      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
-      "category": "burgers",
-      "image": "/images/burger_1.png"
+      "id": 1717503522698,
+      "firstName": "Alinia",
+      "lastName": "Bajs",
+      "address": "fdfd",
+      "postalCode": "2222222",
+      "city": "Lund",
+      "email": "alinia93@gmail.com",
+      "password": "fdfdf",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": 3,
-      "title": "Flying fat Joe",
-      "price": 14,
-      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-      "category": "burgers",
-      "image": "/images/burger_3.png"
+      "id": 1717503523591,
+      "firstName": "Alinia",
+      "lastName": "Bajs",
+      "address": "fdfd",
+      "postalCode": "2222222",
+      "city": "Lund",
+      "email": "alinia93@gmail.com",
+      "password": "fdfdf",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": 2,
-      "title": "Flying black bacon",
-      "price": 13.2,
-      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
-      "category": "burgers",
-      "image": "/images/burger_1.png"
+      "id": 1717503524131,
+      "firstName": "Alinia",
+      "lastName": "Bajs",
+      "address": "fdfd",
+      "postalCode": "2222222",
+      "city": "Lund",
+      "email": "alinia93@gmail.com",
+      "password": "fdfdf",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": 3,
-      "title": "Flying fat Joe",
-      "price": 14,
-      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-      "category": "burgers",
-      "image": "/images/burger_3.png"
+      "id": 1717503524510,
+      "firstName": "Alinia",
+      "lastName": "Bajs",
+      "address": "fdfd",
+      "postalCode": "2222222",
+      "city": "Lund",
+      "email": "alinia93@gmail.com",
+      "password": "fdfdf",
+      "cart": [],
+      "favorites": []
     },
     {
-      "id": 2,
-      "title": "Flying black bacon",
-      "price": 13.2,
-      "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
-      "category": "burgers",
-      "image": "/images/burger_1.png"
-    },
-    {
-      "id": 3,
-      "title": "Flying fat Joe",
-      "price": 14,
-      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-      "category": "burgers",
-      "image": "/images/burger_3.png"
-    },
-    {
-      "id": 4,
-      "title": "Flying crispy fries",
-      "price": 14,
-      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-      "category": "sides",
-      "image": "/images/fries_1.png"
-    },
-    {
-      "id": 3,
-      "title": "Flying fat Joe",
-      "price": 14,
-      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-      "category": "burgers",
-      "image": "/images/burger_3.png"
-    },
-    {
-      "id": 4,
-      "title": "Flying crispy fries",
-      "price": 14,
-      "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-      "category": "sides",
-      "image": "/images/fries_1.png"
+      "id": 1717503525087,
+      "firstName": "Alinia",
+      "lastName": "Bajs",
+      "address": "fdfd",
+      "postalCode": "2222222",
+      "city": "Lund",
+      "email": "alinia93@gmail.com",
+      "password": "bajs",
+      "cart": [],
+      "favorites": [   {
+        "id": 4,
+        "title": "Flying crispy fries",
+        "price": 14,
+        "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+        "category": "sides",
+        "image": "/images/fries_1.png"
+      },
+      {
+         "id": 2,
+        "title": "Flying black bacon",
+        "price": 13.2,
+        "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
+        "category": "burgers",
+        "image": "/images/burger_1.png"
+      }
+    
+    
+    ]
     }
   ]
 }

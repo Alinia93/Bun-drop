@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "../../css/Cart.css";
+import { Link,useNavigate } from "react-router-dom"; 
 
 function OrderContainer() {
   const [order, setOrder] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/tempCart")
-      .then((res) => res.json())
-      .then((data) => {
-        const newListWithQuantity = countProducts(data);
-        setOrder(newListWithQuantity);
-      });
+    const tempCart = JSON.parse(localStorage.getItem("tempCart")) || [];
+    const newListWithQuantity = countProducts(tempCart);
+    setOrder(newListWithQuantity);
   }, []);
+
+
 
   function countProducts(products) {
     const productMap = new Map();
@@ -57,6 +58,10 @@ function OrderContainer() {
       0
     );
   }
+  function handleCheckout (){
+    const totalSum = calculateTotalCartPrice().toFixed(2);
+    navigate("/payment", { state: { totalSum } });
+  };
 
   return (
     <div className="your-order-container">
@@ -106,7 +111,12 @@ function OrderContainer() {
       <div className="sum-container">
         <div>Total sum</div>
         <div>{calculateTotalCartPrice().toFixed(2)}</div>
+        
+       
+          <button className="btn btn-primary"  onClick={handleCheckout}>Checkout</button>
+     
       </div>
+    
     </div>
   );
 }

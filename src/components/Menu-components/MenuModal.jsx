@@ -3,7 +3,7 @@ import { Modal } from "react-bootstrap";
 
 function MenuModal(props) {
   return (
-    <Modal show={props.showModal} onHide={props.handleClose} centered>
+    <Modal  show={props.showModal} onHide={props.handleClose} centered>
       <Modal.Header closeButton>
         <Modal.Title className="modal-burger-title">
           {props.selectedItem.title}

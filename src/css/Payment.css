@@ -42,13 +42,13 @@ input{
   }
 
 
-  .modal {
+  .payment-modal {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Se till att modalen har en högre z-index än andra element */
+    z-index: 1000; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,6 +71,21 @@ input{
   }
 
   .btn-primary:disabled {
-    opacity: 0,7; /* Minska opaciteten för att indikera inaktivitet */
-    cursor: not-allowed; /* Ändra muspekaren till "not-allowed" för att indikera inaktivitet */
+    opacity: 0,7; 
+    
   }
+
+
+  .payment-container{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+  @media (min-width: 768px) {
+    .payment-container {
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+  }
+  

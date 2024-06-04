@@ -1,10 +1,30 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import "../../css/Footer.css";
 
 function Footer() {
+
+  const [userEmail, setUserEmail] = useState(null);
+
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('signedInUser'));
+    if (user) {
+      setUserEmail(user.email); 
+    }
+  }, []);
+
+
+
+  
+  function handleSignOut(){
+    localStorage.removeItem('signedInUser');
+    window.location.reload(); 
+  };
+
+
   return (
     <div className="footer d-flex justify-content-end align-items-center">
       <Container className=" d-flex justify-content-end ">
@@ -36,11 +56,26 @@ function Footer() {
                   className="footer-links"
                   href="https://instagram.com"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  
                 >
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </li>
+
+              <li className="mx-2">
+                <a
+                  className="footer-links"
+                  href="#"
+                  onClick={handleSignOut}
+                >
+                  Sign out
+                </a>
+              </li>
+              {userEmail && (
+                <li className="mx-2">
+                  <span className="footer-user-email">Welcome, {userEmail}</span>
+                </li>
+              )}
             </ul>
           </Col>
         </Row>

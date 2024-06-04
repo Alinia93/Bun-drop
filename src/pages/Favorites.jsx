@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from "react";
 import MyNavBar from "../components/UsedOnManyPages/MyNavBar";
+import "../css/Favorites.css"
+import Footer from "../components/UsedOnManyPages/Footer";
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
@@ -20,14 +22,14 @@ function Favorites() {
 
   }
 return(
-  <div>
+  <div className="favorites-page-container">
       <MyNavBar />
       <div className="container my-5">
         <h1 className="text-center mb-4">My Favorites</h1>
 
         <div className="row">
           {favorites.length === 0 ? (
-            <p>Du har inga favoritprodukter ännu.</p>
+            <p>You have no favorites</p>
           ) : (
             favorites.map(product => (
               <div
@@ -51,6 +53,7 @@ return(
           )}
         </div>
       </div>
+      <Footer/>
     </div>
 )
 }

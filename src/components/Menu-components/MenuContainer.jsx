@@ -37,18 +37,35 @@ function MenuContainer(props) {
     }
   }
 
-  function handleOrder() {
-    let cart = JSON.parse(localStorage.getItem('tempCart')) || [];
-    cart.push(selectedItem);
-    localStorage.setItem('tempCart', JSON.stringify(cart));
-    
-    props.setTempCartCount(cart.length);
+  function handleOrder()
+  
+  {
+   
+    const user = JSON.parse(localStorage.getItem('signedInUser'));
+    if (user) {
+      let userCart = user.cart || [];
+      userCart.push(selectedItem);
+      user.cart = userCart;
+      localStorage.setItem('signedInUser', JSON.stringify(user));
+      props.setTempCartCount(userCart.length);
+    } else {
+      let cart = JSON.parse(localStorage.getItem('tempCart')) || [];
+      cart.push(selectedItem);
+      localStorage.setItem('tempCart', JSON.stringify(cart));
+      props.setTempCartCount(cart.length);
+    }
+  
     handleClose();
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }
+
+  
+
+
+
   return (
     <>
       <div className="container my-5 menu-container">

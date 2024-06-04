@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "../../css/Cart.css";
-import { Link,useNavigate } from "react-router-dom"; 
+import { Link, useNavigate } from "react-router-dom"; 
 
 function OrderContainer() {
   const [order, setOrder] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const tempCart = JSON.parse(localStorage.getItem("tempCart")) || [];
-    const newListWithQuantity = countProducts(tempCart);
+   
+    const user = JSON.parse(localStorage.getItem('signedInUser'));
+    const cart = user ? user.cart || [] : JSON.parse(localStorage.getItem("tempCart")) || [];
+
+    const newListWithQuantity = countProducts(cart);
     setOrder(newListWithQuantity);
   }, []);
-
-
 
   function countProducts(products) {
     const productMap = new Map();
@@ -58,17 +59,18 @@ function OrderContainer() {
       0
     );
   }
-  function handleCheckout (){
+
+  function handleCheckout() {
     const totalSum = calculateTotalCartPrice().toFixed(2);
     navigate("/payment", { state: { totalSum } });
-  };
+  }
 
   return (
     <div className="your-order-container">
       <div className="container">
         <div className="header">
           <div className="row">
-            <div className="col-4"> Hej Products</div>
+            <div className="col-4">Products</div>
             <div className="col-2">Price</div>
             <div className="col-2">Quantity</div>
             <div className="col-2 border border-danger">Total</div>
@@ -111,12 +113,8 @@ function OrderContainer() {
       <div className="sum-container">
         <div>Total sum</div>
         <div>{calculateTotalCartPrice().toFixed(2)}</div>
-        
-       
-          <button className="btn btn-primary"  onClick={handleCheckout}>Checkout</button>
-     
+        <button className="btn btn-primary" onClick={handleCheckout}>Checkout</button>
       </div>
-    
     </div>
   );
 }

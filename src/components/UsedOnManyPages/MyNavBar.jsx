@@ -12,23 +12,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function MyNavBar(props) {
-
-  const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
-  function linkToRegister(){
-navigate("/menu");
-handleCloseModal();
-  }
-
   return (
     <>
     <Navbar expand="lg">

@@ -13,6 +13,10 @@ import SignIn from "./pages/SignIn";
 function App() {
   return (
     <Router>
+
+
+
+      <p>hej</p>
       <Routes>
         <Route path="/" element={<Home />} />
 

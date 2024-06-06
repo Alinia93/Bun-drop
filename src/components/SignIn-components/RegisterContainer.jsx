@@ -8,6 +8,8 @@ function RegisterContainer()
   const [postalCode, setPostalCode] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [formErrors, setFormErrors] = useState({
@@ -55,6 +57,13 @@ function RegisterContainer()
     setEmail(value);
     setFormErrors(prev => ({ ...prev, email: value.trim() === "" ? "Email is required." : "" }));
   }
+  
+  function handleUsernameChange(e) {
+    const value = e.target.value;
+    setUsername(value);
+    setFormErrors(prev => ({ ...prev, username: value.trim() === "" ? "Username is required." : "" }));
+  }
+
 
   function handlePasswordChange(e) {
     const newPassword = e.target.value;
@@ -96,6 +105,7 @@ function RegisterContainer()
       address,
       postalCode,
       city,
+      username,
       email,
       password,
       cart: [], 
@@ -164,6 +174,7 @@ function RegisterContainer()
                   
                   {formErrors.lastName && <div className="invalid-feedback">{formErrors.firstName}</div>}
                 </div>
+
                 <div className="mb-3">
                   <label htmlFor="address" className="form-label">
                     Address
@@ -178,6 +189,7 @@ function RegisterContainer()
                   />
               {formErrors.address && <div className="invalid-feedback">{formErrors.firstName}</div>}
                 </div>
+
                 <div className="mb-3">
                   <label htmlFor="postalCode" className="form-label">
                     Postal Code
@@ -193,6 +205,7 @@ function RegisterContainer()
                   
                   {formErrors.postalCode && <div className="invalid-feedback">{formErrors.firstName}</div>}
                 </div>
+
                 <div className="mb-3">
                   <label htmlFor="city" className="form-label">
                     City
@@ -207,8 +220,9 @@ function RegisterContainer()
                   />
                    {formErrors.city && <div className="invalid-feedback">{formErrors.firstName}</div>}
                 </div>
-              </div>
-              <div className="col-md-6">
+       
+
+            
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">
                     Email
@@ -223,6 +237,25 @@ function RegisterContainer()
                   />
                     {!formErrors.email && <div className="invalid-feedback">{formErrors.firstName}</div>}
                 </div>
+            
+
+             
+                <div className="mb-3">
+                  <label htmlFor="userName" className="form-label">
+                    Username:
+                  </label>
+                  <input
+                    value={username}
+                    type="username"
+                    className="form-control"
+                    id="username"
+                    placeholder="Enter your username"
+                    onChange={handleUsernameChange}
+                  />
+                    {!formErrors.email && <div className="invalid-feedback">{formErrors.firstName}</div>}
+                </div>
+          
+
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">
                     Password

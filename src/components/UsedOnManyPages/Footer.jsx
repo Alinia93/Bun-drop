@@ -4,24 +4,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import "../../css/Footer.css";
 
-function Footer() {
+function Footer({signedInUser,setSignedInUser}) {
 
-  const [userEmail, setUserEmail] = useState(null);
+ 
 
 
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('signedInUser'));
-    if (user) {
-      setUserEmail(user.email); 
-    }
-  }, []);
+
+  
 
 
 
   
   function handleSignOut(){
-    localStorage.removeItem('signedInUser');
-    window.location.reload(); 
+ setSignedInUser(null);
   };
 
 
@@ -62,6 +57,7 @@ function Footer() {
                 </a>
               </li>
 
+            {signedInUser ? (
               <li className="mx-2">
                 <a
                   className="footer-links"
@@ -71,11 +67,8 @@ function Footer() {
                   Sign out
                 </a>
               </li>
-              {userEmail && (
-                <li className="mx-2">
-                  <span className="footer-user-email">Welcome, {userEmail}</span>
-                </li>
-              )}
+              ): null }
+           
             </ul>
           </Col>
         </Row>

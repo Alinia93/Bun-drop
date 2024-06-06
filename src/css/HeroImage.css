@@ -3,11 +3,7 @@
 }
 
 .hero-image {
-  background-image: url("../images/big_hamburger.webp");
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  opacity: 0.7;
+opacity: 80%;
 }
 
 .see-popular-burgers-container {
@@ -16,8 +12,18 @@
   position: absolute;
   top: 8%;
   left: 60%;
-  height: 20%;
-  width: 25%;
+  height: 40%;
+  width: 30%;
+}
+
+@media (max-width: 992px) {
+
+  .see-popular-burgers-container{
+ 
+  displaY:none;
+  }
+
+
 }
 .see-popular-burgers-text {
   text-align: center;
@@ -31,15 +37,16 @@
   position: absolute;
   top: 8%;
   left: 3%;
-  height: 50%;
-  width: 30%;
+  height: 30%;
+  width: 40%;
 }
 
 .hero-text {
   color: white;
-  font-size: 5vw;
+  font-size: 4vw;
   font-weight: bold;
   font-family: "Poetsen One", sans-serif;
+ 
 }
 
 .poetsen-one-regular {

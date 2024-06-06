@@ -26,6 +26,7 @@ function HeroImage() {
           <h1 className="popular-burgers-text">Popular Burgers</h1>
         </div>
       </div>
+      
       <div className="hero-text-container">
         <p className="hero-text">Dropping burgers since 2021</p>
       </div>

@@ -9,10 +9,8 @@ function Home() {
   return (
     <>
     <div className="homePage-container">
-      <MyNavBar />
       <HeroImage />
       <PopularBurgers />
-      <Footer />
       </div>
     </>
   );

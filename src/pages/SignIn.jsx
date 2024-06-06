@@ -5,14 +5,13 @@ import "../css/SignIn.css"
 import MyNavBar from "../components/UsedOnManyPages/MyNavBar";
 import Footer from "../components/UsedOnManyPages/Footer";
 
-function SignIn() {
+function SignIn({setSignedInUser}) {
     return (
       <>
-      <div className="signIn-page-container">
-        <MyNavBar/>
-      <SignInRegisterContainer/>
-      <Footer/>
-      </div>
+
+      <SignInRegisterContainer setSignedInUser={setSignedInUser}/>
+  
+     
       </>
     );
   }

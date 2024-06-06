@@ -1,20 +1,17 @@
 
 import { Link } from "react-router-dom";
 import React,{useState} from "react";
-
-
-
-
 import burgerImage from '../../images/burger_1.png';
 
-function SignInRegisterContainer() {
-    const [email, setEmail] = useState("");
+function SignInRegisterContainer({setSignedInUser})
+{
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
 
 
-    function handleEmailChange(e) {
-        setEmail(e.target.value);
+    function handleUsernameChange(e) {
+        setUsername(e.target.value);
       }
     
       function handlePasswordChange(e) {
@@ -28,29 +25,20 @@ function SignInRegisterContainer() {
         fetch("http://localhost:3000/users")
           .then(response => response.json())
           .then(data => {
-           
-
-
-            const user = data.find(
-              user =>
-                user.email === email && user.password === password
-            );
-    
+            const user = data.find(user => user.username === username && user.password === password);
+        
             if (user) {
-           localStorage.setItem('signedInUser', JSON.stringify(user));
-              console.log("Inloggning lyckades!");
-         
+            setSignedInUser(user);
+              console.log("Log in successfully!");
             } else {
-             
-              setErrorMessage("Felaktigt e-post eller lösenord.");
-              console.log("fel")
+              setErrorMessage("Incorrect username or password");
+              console.log("Incorrect username or password");
             }
           })
           .catch(error => {
-            console.error("Ett fel inträffade:", error);
+            console.error("An error occurred:", error);
           });
       }
-
 
 
   
@@ -61,15 +49,15 @@ function SignInRegisterContainer() {
           <h2>Sign in</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
+              <label htmlFor="username" className="form-label">
+                User name:
               </label>
               <input
-                type="email"
+                type="username"
                 className="form-control"
-                id="email"
-                placeholder="Enter your email"
-                onChange={handleEmailChange}
+                id="username"
+                placeholder="Enter your username"
+                onChange={handleUsernameChange}
               />
             </div>
             <div className="mb-3">

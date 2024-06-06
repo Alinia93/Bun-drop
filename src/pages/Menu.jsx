@@ -11,11 +11,11 @@ function Menu() {
   return (
     <>
     <div className="menu-page-container">
-      <MyNavBar tempCartCount={tempCartCount} />
+     
       <div className="d-flex justify-content-center align-items-center">
       <MenuContainer setTempCartCount={setTempCartCount} />
       </div>
-      <Footer/>
+  
       </div>
     </>
   );

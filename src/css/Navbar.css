@@ -18,23 +18,30 @@
 
 .nav-links-2-container {
   display: flex;
-
   position: absolute;
   top: 30%;
   right: 10%;
+
 }
 
 .nav-links-2 {
-  font-size: 2vh;
+  font-size: 20px;
   margin-right: 20px;
+ 
 }
 
 @media (max-width: 992px) {
   .nav-links-2-container {
-    position: absolute;
-    right: 20%;
+    margin-bottom: 50%;
+    position: fixed;
+    top:7%;
+    left:28%;
     display: flex;
     width: 200px;
+  }
+
+  .nav-links-2{
+    font-size:15px;
   }
 
   .nav-links-2 {
@@ -42,7 +49,10 @@
 
     margin-bottom: 10px;
   }
-  .nav-links-2-container .svg-inline--fa {
+  .heart-icon {
+    display: none;
+  }
+  .cart-icon {
     display: none;
   }
 }

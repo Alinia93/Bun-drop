@@ -12,11 +12,18 @@ import Payment from "./pages/Payment";
 import Registration from "./pages/Registration";
 import SignIn from "./pages/SignIn";
 import Footer from "./components/UsedOnManyPages/Footer";
+import {  ToastContainer,toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+
 
 function App() {
+
+  const notify = () => toast.success("Order added to cart!");
+
+  const favoritesNotify =() =>toast.success("Added to favorites!");
+
   const [signedInUser, setSignedInUser] = useState(null);
-
-
 
   return (
     <Router>
@@ -27,13 +34,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/cart" element={<Cart />} />
+        <Route  path="/cart" element={<Cart signedInUser={signedInUser} setSignedInUser={setSignedInUser}/>} />
 
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/favorites" element={<Favorites notify={notify} signedInUser={signedInUser} />} />
 
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/menu" element={<Menu notify={notify} favoritesNotify={favoritesNotify} signedInUser={signedInUser} setSignedInUser={setSignedInUser} />} />
 
-        <Route path="/payment" element={<Payment />} />
+        <Route path="/payment" element={<Payment  signedInUser={signedInUser}/>} />
 
         
         <Route path="/signIn" element={<SignIn setSignedInUser={setSignedInUser} />} />
@@ -42,7 +49,7 @@ function App() {
         <Route path="/register" element={<Registration />} />
         
     </Routes>
-
+<ToastContainer/>
 
 <Footer signedInUser={signedInUser} setSignedInUser={setSignedInUser}/>
     </div>

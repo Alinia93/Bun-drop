@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import React,{useState} from "react";
 import burgerImage from '../../images/burger_1.png';
 
@@ -8,7 +8,7 @@ function SignInRegisterContainer({setSignedInUser})
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-
+    const navigate =useNavigate();
 
     function handleUsernameChange(e) {
         setUsername(e.target.value);
@@ -29,14 +29,17 @@ function SignInRegisterContainer({setSignedInUser})
         
             if (user) {
             setSignedInUser(user);
-              console.log("Log in successfully!");
+            setErrorMessage("");
+           navigate("/");
+
+              
             } else {
               setErrorMessage("Incorrect username or password");
-              console.log("Incorrect username or password");
+            
             }
           })
           .catch(error => {
-            console.error("An error occurred:", error);
+            
           });
       }
 
@@ -75,8 +78,11 @@ function SignInRegisterContainer({setSignedInUser})
             <button type="submit" className="btn btn-danger">
               Sign in
             </button>
+       
           </form>
+          {errorMessage}
         </div>
+       
         <div className="col-md-6 p-5 bg-beige">
           <img src={burgerImage} alt="Burger" className="img-fluid mb-4" />
           <p>No account?</p>

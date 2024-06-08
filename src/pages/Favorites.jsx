@@ -2,28 +2,63 @@ import React,{useState,useEffect} from "react";
 import MyNavBar from "../components/UsedOnManyPages/MyNavBar";
 import "../css/Favorites.css"
 import Footer from "../components/UsedOnManyPages/Footer";
+import MenuModal from "../components/Menu-components/MenuModal";
 
-function Favorites() {
+function Favorites({signedInUser,notify}) {
+
   const [favorites, setFavorites] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-
-    const storedUser = JSON.parse(localStorage.getItem('signedInUser'));
-
-    if (storedUser) {
-
-      setFavorites(storedUser.favorites);
+    if (signedInUser !== null) {
+      fetch(`http://localhost:3000/users/${signedInUser.id}`)
+        .then((res) => res.json())
+        .then((user) => {
+          const signedInUser = user;
+          setFavorites(signedInUser.favorites); // Uppdatera favoriter med användarens favoriter
+        });
     }
-  }, []);
+  }, [signedInUser]);
 
-
-
- function handleClick(){
-
+  function handleClose() {
+    setShowModal(false);
   }
+
+  function handleClick(product) {
+    setSelectedItem(product);
+    setShowModal(true);
+  }
+
+ function handleOrder()
+  {
+    if (signedInUser != null) {
+      let userCart = JSON.parse(localStorage.getItem(`cart_${signedInUser.id}`)) || [];
+    
+      userCart.push(selectedItem);
+      
+
+      localStorage.setItem(`cart_${signedInUser.id}`, JSON.stringify(userCart));
+ 
+      notify();
+      handleClose();
+  }
+  else 
+  {
+  
+    let tempCart = JSON.parse(localStorage.getItem('tempCart')) || [];
+    tempCart.push(selectedItem);
+    localStorage.setItem('tempCart', JSON.stringify(tempCart));
+    notify();
+    handleClose();
+  }
+  }
+
+
+
 return(
   <div className="favorites-page-container">
-      <MyNavBar />
+   
       <div className="container my-5">
         <h1 className="text-center mb-4">My Favorites</h1>
 
@@ -36,9 +71,9 @@ return(
                 key={product.id}
                 className="col-6 col-md-3 mb-4"
                 style={{ cursor: 'pointer' }}
-                onClick={() => handleClick(product)}
+                
               >
-                <div className="card">
+                <div onClick={() => handleClick(product)}className="card">
                   <img
                     src={product.image}
                     className="card-img-top"
@@ -53,7 +88,18 @@ return(
           )}
         </div>
       </div>
-      <Footer/>
+      {selectedItem ? (
+          <MenuModal
+            showModal={showModal}
+            handleOrder={handleOrder}
+            handleClose={handleClose}
+            selectedItem={selectedItem}
+            signedInUser = {signedInUser}
+            isOnFavoritePage ={true}
+            setFavorites = {setFavorites}
+          
+          />
+        ) : null}
     </div>
 )
 }

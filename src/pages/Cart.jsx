@@ -4,17 +4,11 @@ import OrderContainer from "../components/Cart-components/OrderContainer";
 import Footer from "../components/UsedOnManyPages/Footer";
 import "../css/Cart.css"
 
-function Cart() {
+function Cart({signedInUser}) {
   return (
-<div className="cart-page-container">
-   <div className="cart-page-wrapper">
-      <MyNavBar />
-      <OrderContainer /> 
-      </div>
-          <Footer/>
-  
-          </div>
-  
+<>
+      <OrderContainer signedInUser={signedInUser} /> 
+      </> 
   );
 }
 

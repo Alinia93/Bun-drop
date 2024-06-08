@@ -4,7 +4,7 @@ import "../../css/HeroImage.css";
 
 function HeroImage() {
   function handlePopularBurgersClick() {
-    window.scrollTo(0, 1000);
+    window.scrollTo(0, 900);
   }
 
   return (
@@ -23,7 +23,7 @@ function HeroImage() {
           id="popular-burgers-title"
           className="text-center popular-burgers-text-container"
         >
-          <h1 className="popular-burgers-text">Popular Burgers</h1>
+          <h1 className=" popular-burgers-text">Popular Burgers</h1>
         </div>
       </div>
       

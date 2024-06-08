@@ -5,7 +5,7 @@ import MyNavBar from "../components/UsedOnManyPages/MyNavBar";
 import "../css/Menu.css"
 import Footer from "../components/UsedOnManyPages/Footer";
 
-function Menu() {
+function Menu({signedInUser, setSignedInUser,notify,favoritesNotify}) {
   const [tempCartCount, setTempCartCount] = useState(0);
 
   return (
@@ -13,7 +13,7 @@ function Menu() {
     <div className="menu-page-container">
      
       <div className="d-flex justify-content-center align-items-center">
-      <MenuContainer setTempCartCount={setTempCartCount} />
+      <MenuContainer notify={notify} favoritesNotify={favoritesNotify} signedInUser={signedInUser} setSignedInUser={setSignedInUser}setTempCartCount={setTempCartCount} />
       </div>
   
       </div>

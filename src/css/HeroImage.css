@@ -16,12 +16,14 @@ opacity: 80%;
   width: 30%;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
 
   .see-popular-burgers-container{
  
-  displaY:none;
+  display:none;
   }
+
+  
 
 
 }
@@ -62,8 +64,9 @@ opacity: 80%;
 }
 
 .popular-burgers-text-container {
-  height: 30vh;
+  height: 20vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+

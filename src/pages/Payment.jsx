@@ -6,17 +6,17 @@ import InputPaymentDetails from "../components/Payment-components/InputPaymentDe
 import Footer from "../components/UsedOnManyPages/Footer";
 import "../css/Payment.css"
 
-function Payment() {
+function Payment({signedInUser}) {
 
   const location = useLocation();
-  const { totalSum } = location.state || { totalSum: 0 };
+  const { totalSum, products } = location.state || { totalSum: 0, products: [] };
   return <>
   
 
   <div className="payment-container">
-  <MyNavBar/>
-  <InputPaymentDetails  totalSum={totalSum}/>
-  <Footer/>
+
+  <InputPaymentDetails  signedInUser={signedInUser} totalSum={totalSum} products={products}/>
+
   </div>
   </>;
 }

@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { useNavigate } from 'react-router-dom';
@@ -12,11 +12,15 @@ import "../../css/Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
-function MyNavBar(props) {
+function MyNavBar(props) 
+{
+
+  
+
   return (
     <>
     <Navbar expand="lg">
-      <Container fluid className=" d-flex align-items-center position-relative">
+      <Container fluid className=" container   ">
         <Navbar.Brand className=" brand-container" as={Link} to="/">
           <img className="img-fluid logo" src={logo} alt="Bun drop logo" />
         </Navbar.Brand>
@@ -24,9 +28,9 @@ function MyNavBar(props) {
         <Navbar.Toggle aria-controls="navbar" />
         <Navbar.Collapse
           id="navbar"
-          className="flex-grow-1 navbar-collapse-container"
+          className="navbar-collapse-container"
         >
-          <Nav className="mx-auto">
+          <Nav >
             <Nav.Link className=" nav-links" as={Link} to="/menu">
               Menu
             </Nav.Link>
@@ -38,24 +42,23 @@ function MyNavBar(props) {
             <Nav.Link className="m-0 nav-links " as={Link} to="/cart">
               Your Order
             </Nav.Link>
-            <span className=" ml-0 mt-2">{props.tempCartCount}</span>
-          </Nav>
-        </Navbar.Collapse>
-        <div className="nav-links-2-container">
-          {props.signedInUser ? (
+            {props.signedInUser ? (
             <>
-              <FontAwesomeIcon className="heart-icon" icon={faHeart} transform="down-5 left-6" />
-              <Nav.Link className="nav-links-2" as={Link} to="/favorites">
+            
+              <Nav.Link className="nav-links"  as={Link} to="/favorites">
+              <FontAwesomeIcon className="heart-icon" icon={faHeart} transform="down-1 left-6" />
                 Your favorites
               </Nav.Link>
-              <span className="nav-links-2">{props.signedInUser.username}</span>
+              <span className="username">{`Welcome ${props.signedInUser.username}`}</span>
             </>
           ) : (
-            <Nav.Link className="nav-links-2" as={Link} to="/signIn">
+            <Nav.Link className="nav-links" as={Link} to="/signIn">
               Sign in
             </Nav.Link>
           )}
-        </div>
+          </Nav>
+        </Navbar.Collapse>
+     
       </Container>
     </Navbar>
       </>

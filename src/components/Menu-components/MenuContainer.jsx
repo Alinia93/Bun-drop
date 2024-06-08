@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
-
 import "../../css/Menu.css";
 import SearchBar from "./SearchBar";
 import MenuModal from "./MenuModal";
 
+
+
 function MenuContainer(props) {
+
+
+
+
   const [menu, setMenu] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -13,7 +18,7 @@ function MenuContainer(props) {
 
   useEffect(() => {
     fetch("http://localhost:3000/bunDropMenu")
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
         setMenu(data);
         setFilteredMenu(data);
@@ -37,32 +42,29 @@ function MenuContainer(props) {
     }
   }
 
-  function handleOrder()
-  
+  function handleOrder() 
   {
-   
-    const user = JSON.parse(localStorage.getItem('signedInUser'));
-    if (user) {
-      let userCart = user.cart || [];
+    if (props.signedInUser != null) {
+      let userCart = JSON.parse(localStorage.getItem(`cart_${props.signedInUser.id}`)) || [];
+    
       userCart.push(selectedItem);
-      user.cart = userCart;
-      localStorage.setItem('signedInUser', JSON.stringify(user));
-      props.setTempCartCount(userCart.length);
-    } else {
-      let cart = JSON.parse(localStorage.getItem('tempCart')) || [];
-      cart.push(selectedItem);
-      localStorage.setItem('tempCart', JSON.stringify(cart));
-      props.setTempCartCount(cart.length);
-    }
-  
-    handleClose();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }
+      
 
+      localStorage.setItem(`cart_${props.signedInUser.id}`, JSON.stringify(userCart));
+ 
+      props.notify();
+      handleClose();
+  }
+  else 
+  {
   
+    let tempCart = JSON.parse(localStorage.getItem('tempCart')) || [];
+    tempCart.push(selectedItem);
+    localStorage.setItem('tempCart', JSON.stringify(tempCart));
+    props.notify();
+    handleClose();
+  }
+}
 
 
 
@@ -99,6 +101,8 @@ function MenuContainer(props) {
             handleOrder={handleOrder}
             handleClose={handleClose}
             selectedItem={selectedItem}
+            signedInUser = {props.signedInUser}
+            favoritesNotify = {props.favoritesNotify}
           />
         ) : null}
       </div>

@@ -1,132 +1,186 @@
 import React, { useState,useEffect } from "react";
-import { useLocation } from "react-router-dom";
+
 import "../../css/Payment.css";
+import OrderSuccessfullyModal from "./OrderSuccesfullyModal";
 
-function InputPaymentDetails({totalSum}) {
+function InputPaymentDetails({totalSum, products, signedInUser}) 
+{
 
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState("");
     const [paymentMethod, setPaymentMethod] = useState("");
     const [cardNumber, setCardNumber] = useState("");
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCvv] = useState("");
     const [showCardForm, setShowCardForm] = useState(false);
     const [showSwishForm, setShowSwishForm] = useState(false);
-    const [modalVisible, setModalVisible] = useState(false);
-    const [validationError, setValidationError] = useState("");
+
+
+
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [address, setAddress] = useState("");
+    const [postalCode, setPostalCode] = useState("");
+    const [city, setCity] = useState("");
+
+
+    
     const [deliveryTime, setDeliveryTime] = useState(null);
+    const [cardNumberError,setCardNumberError]=useState("");
+    const [dateError,setDateError]=useState("");
+    const[cvvError,setCvvError]=useState("");
+    const isDisabled = !paymentMethod || 
+    (paymentMethod === "bankCard" && (cardNumberError || dateError || cvvError || !cardNumber || !expiryDate || !cvv)) ||
+    (paymentMethod === "swish" && phoneNumberError || !phoneNumber);
+    const [modalVisible, setModalVisible] = useState(false);
+
+
 
     useEffect(() => {
-      if (modalVisible) {
-        document.body.style.overflow = "hidden"; 
-      } else {
-        document.body.style.overflow = ""; 
+      if (signedInUser) {
+        setFirstName(signedInUser.firstName || "");
+        setLastName(signedInUser.lastName || "");
+        setAddress(signedInUser.address || "");
+        setPostalCode(signedInUser.postalCode || "");
+        setCity(signedInUser.city || "");
       }
-    }, [modalVisible]);
+    }, [signedInUser]);
 
-    const handlePaymentMethod = (method) => {
+
+
+    function handlePhoneNumberChange(e) {
+      const input = e.target.value.replace(/\D/g, ''); 
+      if (input.length === 10) {
+        setPhoneNumber(input);
+        setPhoneNumberError("");
+      } else {
+        setPhoneNumberError("Phone number needs to be 10 digits.");
+      }
+    }
+
+
+
+    function handlePaymentMethod(method)
+    {
       setPaymentMethod(method);
-      setValidationError("");
+    
       if (method === "bankCard") {
         setShowCardForm(true);
         setShowSwishForm(false);
+        setPhoneNumber("");
       } else if (method === "swish") {
         setShowSwishForm(true);
         setShowCardForm(false);
       }
+    }
+
+    function handleCardNumberChange(e)
+    {
+      const input = e.target.value;
+      const cardNumber = input.replace(/\D/g, ''); 
+     
+      if (cardNumber.length === 16) {
+        setCardNumber(cardNumber);
+        setCardNumberError("");
+      } else {
+       setCardNumberError("Card number needs to be 16 digits");   
+      }
+      };
+
+    function handleExpiryDateChange(e) 
+    {
+      const input = e.target.value.replace(/\D/g, ''); 
+      if (
+        input.length === 4 &&
+        !isNaN(input) &&
+        parseInt(input.slice(0, 2)) <= 12 &&
+        parseInt(input.slice(2, 4)) >= new Date().getFullYear().toString().slice(2)
+      ) {
+        setExpiryDate(input);
+        setDateError(""); 
+      } else {
+        setDateError("Invalid expiry date.");
+      }
     };
+    
+      function handleCvvChange(e)
+       {
+        const input = e.target.value.replace(/\D/g, ''); 
 
- 
-    const handleCardNumberChange = (e) => {
-        setCardNumber(e.target.value);
-        setValidationError("");
-      };
-    
-      const handleExpiryDateChange = (e) => {
-        setExpiryDate(e.target.value);
-        setValidationError("");
-      };
-    
-      const handleCvvChange = (e) => {
-        setCvv(e.target.value);
-        setValidationError("");
-      };
-    
-      const handleOrder = () => {
-        if (paymentMethod === "bankCard") {
-          // Validate card details
-          if (cardNumber.length !== 16) {
-            setValidationError("Card number must be 16 digits.");
-            return;
-          }
-        
-          if (
-            expiryDate.length !== 4 || // Kontrollera längden
-            isNaN(expiryDate) || // Kontrollera om det är ett nummer
-            parseInt(expiryDate.slice(0, 2)) > 12 || // Kontrollera om månaden är korrekt
-            parseInt(expiryDate.slice(2, 4)) < new Date().getFullYear().toString().slice(2) // Kontrollera om året är i framtiden
-          ) {
-            setValidationError("Invalid expiry date.");
-            return;
-        
-        
-          }
-          const cvvRegex = /^[0-9]{3}$/; // Reguljärt uttryck för att matcha en sekvens av tre siffror
-
-          if (!cvvRegex.test(cvv)) {
-            setValidationError("CVV must be 3 digits.");
-            return;
-          }
+        if (input.length === 3 && !isNaN(input)) {
+          setCvv(input);
+          setCvvError(""); 
+        } else {
+          setCvvError("CVV must be exactly 3 digits."); 
         }
-    
-        const randomDeliveryTime = Math.floor(Math.random() * 26) + 20;
-        setDeliveryTime(randomDeliveryTime);
-      
-        setModalVisible(true);
-        console.log("Modal visible:", modalVisible); 
       };
-    
-      const closeModal = () => {
+
+
+      function handleCloseModal() {
         setModalVisible(false);
-        // Clear form fields
-        setCardNumber("");
-        setExpiryDate("");
-        setCvv("");
-        setValidationError("");
-      };
+      }
+
+      function handleOrder()
+      {
+        
+       if(!isDisabled)
+      {
+setModalVisible(true);
+       
+      }
+    }
+    
+     
+    
+        
   
     return (
-<div className="big-container">
-  <div className="m-5 container-fluid payment-container">
-    <div className="row">
+      <>
+      
+<h1 className="text-center mb-4">Check out</h1>
+<div className="big-container  position-relative">
 
-      <div className="col-lg-6">
+  <div className="  container-fluid payment-container ">
+    <div className="row ">
+
+      <div className="col-lg-6 ">
+        <div className="personal-information-container ">
         <h2>Personal Information</h2>
 
-        <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
-          <input type="text" className="form-control" id="firstName" placeholder="Enter your first name"  />
+        <div className="form-group ">
+          <label className="label-text">First Name</label>
+          <input 
+          type="text" 
+          className="form-control" 
+          id="firstName" 
+          placeholder="Enter your first name"
+          value={firstName}
+           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
-          <input type="text" className="form-control" id="lastName" placeholder="Enter your last name" />
+          <label>Last Name</label>
+          <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"  value={lastName}/>
         </div>
 
         <div className="form-group">
-          <label htmlFor="address">Address</label>
-          <input type="text" className="form-control" id="address" placeholder="Enter your address" />
+          <label >Address</label>
+          <input type="text" className="form-control" id="address" placeholder="Enter your address"  value={address} />
         </div>
 
         <div className="form-group">
-          <label htmlFor="postalCode">Postal code</label>
-          <input type="text" className="form-control" id="postalCode" placeholder="Enter your postal code" />
+          <label >Postal code</label>
+          <input type="text" className="form-control" id="postalCode" placeholder="Enter your postal code" value={postalCode} />
         </div>
 
         <div className="form-group">
-          <label htmlFor="city">City</label>
-          <input type="text" className="form-control" id="city" placeholder="Enter your city" />
+          <label >City</label>
+          <input type="text" className="form-control" id="city" placeholder="Enter your city" value={city} />
         </div>
 
-        <h2>Payment Method</h2>
+        </div>
+
+        <h2 className="payment-method-text" >Payment Method</h2>
 
         <div className="form-check ">
           <input
@@ -144,14 +198,14 @@ function InputPaymentDetails({totalSum}) {
 
         <div className="form-check">
           <input
-            className="form-check-input "
+            className=" form-check-input "
             type="checkbox"
             value=""
             id="swish"
             checked={paymentMethod === "swish"}
             onChange={() => handlePaymentMethod("swish")}
           />
-          <label className="form-check-label " htmlFor="swish">
+          <label className="form-check-label ">
             Swish
           </label>
         </div>
@@ -159,53 +213,45 @@ function InputPaymentDetails({totalSum}) {
       </div>
 
       <div className="col-lg-6">
-        {paymentMethod === "bankCard" && (
+        {paymentMethod === "bankCard" ? (
           <div>
-            <div className="form-group">
+            <div className="form-group swish-bank-container ">
               <label htmlFor="bankCardNumber">Bank Card Number</label>
               <input type="text" className="form-control" id="bankCardNumber" placeholder="Enter your bank card number"
                onChange={handleCardNumberChange}/>
+               {cardNumberError}
             </div>
 
             <div className="form-group">
               <label htmlFor="expiryDate">Expiry Date</label>
               <input type="text" className="form-control" id="expiryDate" placeholder="MMYY"
                     onChange={handleExpiryDateChange} />
+                     {dateError}
             </div>
 
             <div className="form-group">
               <label htmlFor="cvv">CVV</label>
               <input type="text" className="form-control" id="cvv" placeholder="Enter your CVV" 
                onChange={handleCvvChange}/>
+               {cvvError}
             </div>
           </div>
-        )}
+        ):null}
 
-        {paymentMethod === "swish" && (
-          <div className="form-group">
+
+        {paymentMethod === "swish" ? (
+          <div className="form-group swish-bank-container ">
             <label htmlFor="mobileNumber">Mobile Number</label>
-            <input type="text" className="form-control" id="mobileNumber" placeholder="Enter your mobile number" />
+            <input type="text" className="form-control" id="mobileNumber" placeholder="Enter your mobile number" onChange={handlePhoneNumberChange}  />
           </div>
-        )}
+        ):null}
+         {phoneNumberError && <span className="error-text">{phoneNumberError}</span>}
 
-<div className="m-5">Total sum : {totalSum}</div>
-{validationError && <div className="text-danger">{validationError}</div>}
-            <button className="btn btn-primary" disabled={!paymentMethod} onClick={handleOrder}>
+<div className="m-5  fw-bold">Total sum : {totalSum}</div>
+
+            <button className={`order-btn ${isDisabled ? 'disabled' : ''}`} onClick={handleOrder} >
               Order
             </button>
-
-
-            {modalVisible && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <p>Order placed successfully!</p>
-            <p>Your order will be delivered in approximately: {deliveryTime} min</p>
-          </div>
-        </div>
-      )}
       </div>
 
 
@@ -214,9 +260,12 @@ function InputPaymentDetails({totalSum}) {
     </div>
   </div>
 
-  
+
+ 
     
 </div>
+<OrderSuccessfullyModal products={products} showModal={modalVisible} handleClose={handleCloseModal} />
+</>
 );
 }
   

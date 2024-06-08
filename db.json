@@ -1,7 +1,7 @@
 {
   "bunDropMenu": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Flying Cheezy beef",
       "price": 12.5,
       "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
@@ -9,7 +9,7 @@
       "image": "images/burger_2.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Flying black bacon",
       "price": 13.2,
       "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
@@ -17,7 +17,7 @@
       "image": "/images/burger_1.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Flying fat Joe",
       "price": 14,
       "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
@@ -25,23 +25,174 @@
       "image": "/images/burger_3.png"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Flying crispy fries",
       "price": 14,
       "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
       "category": "sides",
       "image": "/images/fries_1.png"
+    },
+    {
+      "id": "5",
+      "title": "BBQ Bacon Blast",
+      "price": 14.8,
+      "description": "Bacon lover's dream! Our BBQ Bacon Blast burger is loaded with crispy bacon and tangy BBQ sauce.",
+      "category": "burgers",
+      "image": "/images/burger_5.png"
+    },
+    {
+      "id": "6",
+      "title": "Spicy Jalapeno Juicy Lucy",
+      "price": 16.2,
+      "description": "A spicy twist on the classic Juicy Lucy burger! Stuffed with jalapenos and melted cheese.",
+      "category": "burgers",
+      "image": "/images/burger_6.png"
+    },
+    {
+      "id": "7",
+      "title": "Classic Beef Fries",
+      "price": 5,
+      "description": "Crispy fries seasoned to perfection. Served with your choice of dip.",
+      "category": "sides",
+      "image": "/images/fries_1.png"
+    },
+    {
+      "id": "8",
+      "title": "Garlic Parmesan Fries",
+      "price": 6,
+      "description": "Golden fries tossed in garlic parmesan seasoning. Perfect for garlic lovers!",
+      "category": "sides",
+      "image": "/images/fries_2.png"
+    },
+    {
+      "id": "9",
+      "title": "Classic Buffalo Dip",
+      "price": 3.5,
+      "description": "Our classic buffalo dip is the perfect accompaniment to any burger or side!",
+      "category": "dips",
+      "image": "/images/dip_1.png"
+    },
+    {
+      "id": "10",
+      "title": "Garlic Parmesan Dip",
+      "price": 3.2,
+      "description": "A savory garlic parmesan dip that pairs perfectly with our crispy fries.",
+      "category": "dips",
+      "image": "/images/dip_2.png"
+    },
+    {
+      "id": "12",
+      "title": "Chocolate Heaven Milkshake",
+      "price": 6.8,
+      "description": "Indulge in our creamy chocolate milkshake topped with whipped cream and chocolate syrup.",
+      "category": "desserts",
+      "image": "/images/milkshake_1.png"
+    },
+    {
+      "id": "14",
+      "title": "Tropical Punch",
+      "price": 4.5,
+      "description": "A refreshing tropical punch made with a blend of exotic fruits. Served over ice.",
+      "category": "drinks",
+      "image": "/images/drink_1.png"
+    },
+    {
+      "id": "15",
+      "title": " Strawberry Vanilla",
+      "price": 4.2,
+      "description": "Experience the madness of ripe strawberries in this delicious and vanilla drink.",
+      "category": "drinks",
+      "image": "/images/drink_2.png"
+    },
+    {
+      "id": "16",
+      "title": "Lemon Lime Fizz",
+      "price": 3.8,
+      "description": "A bubbly and refreshing lemon-lime fizz perfect for quenching your thirst on a hot day.",
+      "category": "drinks",
+      "image": "/images/drink_3.png"
+    },
+    {
+      "id": "17",
+      "title": "Berry Blast",
+      "price": 4,
+      "description": "A burst of berry flavors in every sip! This drink is packed with antioxidants and deliciousness.",
+      "category": "drinks",
+      "image": "/images/drink_4.png"
     }
   ],
   "users": [
     {
-      "id": 1717664557394,
+      "id": "1717664557394",
       "firstName": "AA",
       "lastName": "Andersson",
       "address": "hejhje",
       "postalCode": "22222",
       "city": "lund",
       "username": "user",
+      "email": "alinia93@gmail.com",
+      "password": "password",
+      "cart": [
+        {
+          "id": 4,
+          "title": "Flying crispy fries",
+          "price": 14,
+          "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+          "category": "sides",
+          "image": "/images/fries_1.png"
+        },
+        {
+          "id": "1",
+          "title": "Flying Cheezy beef",
+          "price": 12.5,
+          "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
+          "category": "burgers",
+          "image": "images/burger_2.png"
+        },
+        {
+          "id": "4",
+          "title": "Flying crispy fries",
+          "price": 14,
+          "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
+          "category": "sides",
+          "image": "/images/fries_1.png"
+        },
+        {
+          "id": "10",
+          "title": "Garlic Parmesan Dip",
+          "price": 3.2,
+          "description": "A savory garlic parmesan dip that pairs perfectly with our crispy fries.",
+          "category": "dips",
+          "image": "/images/dip_2.png"
+        },
+        {
+          "id": "14",
+          "title": "Tropical Punch",
+          "price": 4.5,
+          "description": "A refreshing tropical punch made with a blend of exotic fruits. Served over ice.",
+          "category": "drinks",
+          "image": "/images/drink_1.png"
+        }
+      ],
+      "favorites": [
+        {
+          "id": "12",
+          "title": "Chocolate Heaven Milkshake",
+          "price": 6.8,
+          "description": "Indulge in our creamy chocolate milkshake topped with whipped cream and chocolate syrup.",
+          "category": "desserts",
+          "image": "/images/milkshake_1.png"
+        }
+      ]
+    },
+    {
+      "id": "1717703904461",
+      "firstName": "emma",
+      "lastName": "karlsson",
+      "address": "ss",
+      "postalCode": "222",
+      "city": "sss",
+      "username": "hejhej",
       "email": "alinia93@gmail.com",
       "password": "password",
       "cart": [],

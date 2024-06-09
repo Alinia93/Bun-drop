@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import "../../css/Footer.css";
+import { Link } from "react-router-dom";
 
 function Footer({signedInUser,setSignedInUser}) {
 
@@ -26,13 +27,14 @@ function Footer({signedInUser,setSignedInUser}) {
         <Row>
           <Col xs="auto">
             <ul className="list-unstyled d-flex mb-0">
+
               <li className="mx-2">
-                <a className="footer-links" href="/about-us">
+                <Link className="footer-links" to="/aboutUs">
                   About us
-                </a>
+                </Link>
               </li>
               <li className="mx-2">
-                <a className="footer-links" href="/contact">
+                <a className="footer-links">
                   Contact
                 </a>
               </li>

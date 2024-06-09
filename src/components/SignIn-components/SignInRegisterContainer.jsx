@@ -46,7 +46,7 @@ function SignInRegisterContainer({setSignedInUser})
 
   
   return (
-    <div className="container m-3">
+    <div className="container-register-sign-in m-3">
       <div className="row justify-content-center mx-auto">
         <div className="col-md-6 col-lg-6 p-5 bg-black bg-opacity-25 text-white">
           <h2>Sign in</h2>
@@ -85,13 +85,14 @@ function SignInRegisterContainer({setSignedInUser})
        
         <div className="col-md-6 p-5 bg-beige">
           <img src={burgerImage} alt="Burger" className="img-fluid mb-4" />
-          <p>No account?</p>
+          <div className="no-account-container">
+          <p className="fw-bold">No account?</p>
           <Link to="/register">
-          <button type="button" className="btn btn-light">
+          <button type="button" className="register-btn">
             Register
           </button>
           </Link>
-          
+          </div>
         </div>
       </div>
     </div>

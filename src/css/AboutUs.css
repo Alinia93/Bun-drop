@@ -1,0 +1,14 @@
+.about-us-container{
+    margin-top:5%;
+}
+
+
+@media (max-width: 768px) {
+    
+    .about-us-container{
+        margin:6%;
+    }
+
+
+    }
+  

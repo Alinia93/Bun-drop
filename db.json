@@ -123,80 +123,29 @@
   ],
   "users": [
     {
-      "id": "1717664557394",
-      "firstName": "AA",
+      "id": "d7a5"
+    },
+    {
+      "id": "1717927306204",
+      "firstName": "Alinia",
       "lastName": "Andersson",
-      "address": "hejhje",
-      "postalCode": "22222",
-      "city": "lund",
+      "address": "Trollebergsvägen 18",
+      "postalCode": "22230",
+      "city": "Lund",
       "username": "user",
       "email": "alinia93@gmail.com",
       "password": "password",
-      "cart": [
-        {
-          "id": 4,
-          "title": "Flying crispy fries",
-          "price": 14,
-          "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-          "category": "sides",
-          "image": "/images/fries_1.png"
-        },
-        {
-          "id": "1",
-          "title": "Flying Cheezy beef",
-          "price": 12.5,
-          "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
-          "category": "burgers",
-          "image": "images/burger_2.png"
-        },
-        {
-          "id": "4",
-          "title": "Flying crispy fries",
-          "price": 14,
-          "description": "Our fatest burger with extra cheese,bacon and love. Served with fatty fries and coleslaw.",
-          "category": "sides",
-          "image": "/images/fries_1.png"
-        },
-        {
-          "id": "10",
-          "title": "Garlic Parmesan Dip",
-          "price": 3.2,
-          "description": "A savory garlic parmesan dip that pairs perfectly with our crispy fries.",
-          "category": "dips",
-          "image": "/images/dip_2.png"
-        },
-        {
-          "id": "14",
-          "title": "Tropical Punch",
-          "price": 4.5,
-          "description": "A refreshing tropical punch made with a blend of exotic fruits. Served over ice.",
-          "category": "drinks",
-          "image": "/images/drink_1.png"
-        }
-      ],
+      "cart": [],
       "favorites": [
         {
-          "id": "12",
-          "title": "Chocolate Heaven Milkshake",
-          "price": 6.8,
-          "description": "Indulge in our creamy chocolate milkshake topped with whipped cream and chocolate syrup.",
-          "category": "desserts",
-          "image": "/images/milkshake_1.png"
+          "id": "2",
+          "title": "Flying black bacon",
+          "price": 13.2,
+          "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
+          "category": "burgers",
+          "image": "/images/burger_1.png"
         }
       ]
-    },
-    {
-      "id": "1717703904461",
-      "firstName": "emma",
-      "lastName": "karlsson",
-      "address": "ss",
-      "postalCode": "222",
-      "city": "sss",
-      "username": "hejhej",
-      "email": "alinia93@gmail.com",
-      "password": "password",
-      "cart": [],
-      "favorites": []
     }
   ]
 }

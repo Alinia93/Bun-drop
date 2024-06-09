@@ -4,3 +4,18 @@
     justify-content: center;
     align-items: center;
 }
+
+.register-btn{
+    background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 20%;
+}
+
+.no-account-container{
+    margin-left:5%;
+}
+

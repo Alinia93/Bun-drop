@@ -35,18 +35,24 @@ function InputPaymentDetails({totalSum, products, signedInUser})
     const [modalVisible, setModalVisible] = useState(false);
 
 
-
     useEffect(() => {
-      if (signedInUser) {
+      if (signedInUser !== null) {
+        fetch(`http://localhost:3000/users/${signedInUser.id}`)
+          .then((res) => res.json())
+          .then((user) => {
+            const signedInUser = user;
+             
         setFirstName(signedInUser.firstName || "");
         setLastName(signedInUser.lastName || "");
         setAddress(signedInUser.address || "");
         setPostalCode(signedInUser.postalCode || "");
         setCity(signedInUser.city || "");
+          });
       }
     }, [signedInUser]);
+  
 
-
+    
 
     function handlePhoneNumberChange(e) {
       const input = e.target.value.replace(/\D/g, ''); 

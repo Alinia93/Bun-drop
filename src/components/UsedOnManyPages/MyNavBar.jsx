@@ -35,7 +35,7 @@ function MyNavBar(props)
               Menu
             </Nav.Link>
 
-            <Nav.Link className="nav-links" as={Link} to="/about us" >
+            <Nav.Link className="nav-links" as={Link} to="/aboutUs" >
               About us
             </Nav.Link>
             <FontAwesomeIcon className="cart-icon" icon={faCartShopping} transform=" down-12" />

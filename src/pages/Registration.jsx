@@ -6,7 +6,7 @@ function Registration() {
 
 
   return(
-    <div className="register-page-container border border-danger">
+    <div className="register-page-container ">
   <RegisterContainer/>
   
   

@@ -14,6 +14,7 @@ import SignIn from "./pages/SignIn";
 import Footer from "./components/UsedOnManyPages/Footer";
 import {  ToastContainer,toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import AboutUs from "./pages/AboutUs";
 
 
 
@@ -47,6 +48,7 @@ function App() {
 
 
         <Route path="/register" element={<Registration />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
         
     </Routes>
 <ToastContainer/>

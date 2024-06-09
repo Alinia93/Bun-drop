@@ -23,16 +23,22 @@ function InputPaymentDetails({totalSum, products, signedInUser})
     const [postalCode, setPostalCode] = useState("");
     const [city, setCity] = useState("");
 
-
-    
-    const [deliveryTime, setDeliveryTime] = useState(null);
     const [cardNumberError,setCardNumberError]=useState("");
     const [dateError,setDateError]=useState("");
     const[cvvError,setCvvError]=useState("");
-    const isDisabled = !paymentMethod || 
-    (paymentMethod === "bankCard" && (cardNumberError || dateError || cvvError || !cardNumber || !expiryDate || !cvv)) ||
-    (paymentMethod === "swish" && phoneNumberError || !phoneNumber);
+   
     const [modalVisible, setModalVisible] = useState(false);
+
+    const isDisabled =
+    !paymentMethod ||
+    !firstName ||
+    !lastName ||
+    !address ||
+    !postalCode ||
+    !city ||
+    (paymentMethod === "bankCard" && (cardNumberError || dateError || cvvError || !cardNumber || !expiryDate || !cvv)) ||
+    (paymentMethod === "swish" && (phoneNumberError || !phoneNumber));
+
 
 
     useEffect(() => {
@@ -161,27 +167,33 @@ setModalVisible(true);
           id="firstName" 
           placeholder="Enter your first name"
           value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+         
            />
         </div>
 
         <div className="form-group">
           <label>Last Name</label>
-          <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"  value={lastName}/>
+          <input type="text" className="form-control" id="lastName" placeholder="Enter your last name"  value={lastName}   
+              onChange={(e) => setLastName(e.target.value)}/>
         </div>
 
         <div className="form-group">
           <label >Address</label>
-          <input type="text" className="form-control" id="address" placeholder="Enter your address"  value={address} />
+          <input type="text" className="form-control" id="address" placeholder="Enter your address"  value={address}
+           onChange={(e) => setAddress(e.target.value)} />
         </div>
 
         <div className="form-group">
           <label >Postal code</label>
-          <input type="text" className="form-control" id="postalCode" placeholder="Enter your postal code" value={postalCode} />
+          <input type="text" className="form-control" id="postalCode" placeholder="Enter your postal code" value={postalCode}
+           onChange={(e) => setPostalCode(e.target.value)} />
         </div>
 
         <div className="form-group">
           <label >City</label>
-          <input type="text" className="form-control" id="city" placeholder="Enter your city" value={city} />
+          <input type="text" className="form-control" id="city" placeholder="Enter your city" value={city}
+           onChange={(e) => setCity(e.target.value)} />
         </div>
 
         </div>

@@ -6,15 +6,6 @@ import "../../css/Footer.css";
 import { Link } from "react-router-dom";
 
 function Footer({signedInUser,setSignedInUser}) {
-
- 
-
-
-
-  
-
-
-
   
   function handleSignOut(){
  setSignedInUser(null);
@@ -43,7 +34,7 @@ function Footer({signedInUser,setSignedInUser}) {
                   className="footer-links"
                   href="https://facebook.com"
                   target="_blank"
-                  rel="noopener noreferrer"
+              
                 >
                   <FontAwesomeIcon icon={faFacebook} />
                 </a>

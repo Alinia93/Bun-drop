@@ -144,6 +144,14 @@
           "description": "Beef burger with buttery bacon and a black crispy bun. Served with fries",
           "category": "burgers",
           "image": "/images/burger_1.png"
+        },
+        {
+          "id": "1",
+          "title": "Flying Cheezy beef",
+          "price": 12.5,
+          "description": "A cheezy beef burger with cheddar, sallad and our homemade sauce.Served with fries and coleslaw.",
+          "category": "burgers",
+          "image": "images/burger_2.png"
         }
       ]
     }

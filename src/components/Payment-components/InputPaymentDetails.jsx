@@ -1,7 +1,10 @@
 import React, { useState,useEffect } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import "../../css/Payment.css";
 import OrderSuccessfullyModal from "./OrderSuccesfullyModal";
+
 
 function InputPaymentDetails({totalSum, products, signedInUser}) 
 {
@@ -14,6 +17,7 @@ function InputPaymentDetails({totalSum, products, signedInUser})
     const [cvv, setCvv] = useState("");
     const [showCardForm, setShowCardForm] = useState(false);
     const [showSwishForm, setShowSwishForm] = useState(false);
+    const navigate =useNavigate();
 
 
 
@@ -130,17 +134,23 @@ function InputPaymentDetails({totalSum, products, signedInUser})
 
       function handleCloseModal() {
         setModalVisible(false);
+        navigate("/");
+
       }
 
       function handleOrder()
       {
         
-       if(!isDisabled)
-      {
-setModalVisible(true);
+        if (signedInUser !== null) {
+          localStorage.removeItem(`cart_${signedInUser.id}`);
+          localStorage.removeItem('tempCart');
+        } else {
+          localStorage.removeItem('tempCart');
+        }
+        setModalVisible(true);
        
       }
-    }
+    
     
      
     
